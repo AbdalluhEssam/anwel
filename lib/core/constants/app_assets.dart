@@ -8,6 +8,10 @@ class AppAssets {
   static const String onboardingSvg = '$imagePath/onboarding.svg';
   static const String onboardingBgSvg = '$imagePath/bg.svg';
   static const String onboardingBg = '$imagePath/bg.png';
+  static const String profileImage = '$imagePath/profile.png';
+  static const String serv1 = '$imagePath/serv1.png';
+  static const String serv2 = '$imagePath/serv2.png';
+  static const String serv3 = '$imagePath/serv3.png';
 
   //////////////////////  Icons Path //////////////////////
 

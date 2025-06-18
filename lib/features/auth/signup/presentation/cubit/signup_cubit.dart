@@ -7,22 +7,28 @@ class SignupCubit extends Cubit<SignupState> {
   SignupCubit() : super(SignupInitial());
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   ViewState get viewState {
     if (state is SignupLoading) return ViewState.loading;
     if (state is SignupFailure) return ViewState.error;
-    if (state is  SignupSuccess) return ViewState.success;
+    if (state is SignupSuccess) return ViewState.success;
     return ViewState.success;
   }
+
   Future<void> signup() async {
-    emit(SignupLoading());
-    try {
-      // Auth Logic here
-      await Future.delayed(const Duration(seconds: 2));
-      emit(SignupSuccess());
-    } catch (e) {
-      emit(SignupFailure(e.toString()));
+    if (formKey.currentState?.validate() == true) {
+      emit(SignupLoading());
+      try {
+        // Auth Logic here
+        await Future.delayed(const Duration(seconds: 2));
+        emit(SignupSuccess());
+      } catch (e) {
+        emit(SignupFailure(e.toString()));
+      }
     }
   }
 }

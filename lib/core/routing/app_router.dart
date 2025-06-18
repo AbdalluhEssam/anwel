@@ -1,5 +1,6 @@
 import 'package:anwel/features/auth/login/presentation/pages/login_page.dart';
 import 'package:anwel/features/auth/signup/presentation/pages/signup_page.dart';
+import 'package:anwel/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import '../routing/routes.dart';
 import '../../features/splash/presentation/screens/splash_screen.dart';
@@ -17,6 +18,8 @@ class AppRouter {
        return _createRoute(const LoginPage());
      case Routes.signupScreen:
        return _createRoute(const SignupPage());
+     case Routes.homeScreen:
+       return _createRoute(const HomeScreen());
 
 
      default:

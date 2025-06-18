@@ -8,6 +8,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   ViewState get viewState {
     if (state is LoginLoading) return ViewState.loading;
@@ -17,13 +18,16 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> login() async {
-    emit(LoginLoading());
-    try {
-      // Auth Logic here
-      await Future.delayed(const Duration(seconds: 2));
-      emit(LoginSuccess());
-    } catch (e) {
-      emit(LoginFailure(e.toString()));
+    if (formKey.currentState?.validate() == true) {
+      emit(LoginLoading());
+      try {
+        // Auth Logic here
+        await Future.delayed(const Duration(seconds: 2));
+
+        emit(LoginSuccess());
+      } catch (e) {
+        emit(LoginFailure(e.toString()));
+      }
     }
   }
 }
