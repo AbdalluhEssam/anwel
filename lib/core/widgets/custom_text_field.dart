@@ -5,11 +5,13 @@ class CustomTextField extends StatefulWidget {
   final String hint;
   final IconData icon;
   final bool obscure;
+  final TextEditingController? controller;
 
   const CustomTextField({
     super.key,
     required this.hint,
     required this.icon,
+    this.controller,
     this.obscure = false,
   });
 
@@ -30,6 +32,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: _obscureText,
+      controller: widget.controller,
       decoration: InputDecoration(
         hintText: widget.hint,
         hintStyle: TextStyle(
@@ -38,19 +41,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         filled: true,
         fillColor: const Color(0xFFC4C4C4).withOpacity(0.1),
-        prefixIcon: Icon(widget.icon,  color: Colors.black.withOpacity(0.3),),
+        prefixIcon: Icon(
+          widget.icon,
+          color: Colors.black.withOpacity(0.3),
+        ),
         suffixIcon: widget.obscure
             ? IconButton(
-          icon: Icon(
-            _obscureText ? Icons.visibility_off : Icons.visibility,
-            color: Colors.grey,
-          ),
-          onPressed: () {
-            setState(() {
-              _obscureText = !_obscureText;
-            });
-          },
-        )
+                icon: Icon(
+                  _obscureText ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+              )
             : null,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
