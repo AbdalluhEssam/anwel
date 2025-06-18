@@ -1,3 +1,4 @@
+import 'package:anwel/features/home/presentation/widgets/promo_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/home_cubit.dart';
@@ -26,11 +27,12 @@ class HomeScreen extends StatelessWidget {
               const HeaderSection(),
               6.verticalSpace,
               const ServicesSection(),
-              20.verticalSpace,
+              8.verticalSpace,
+              PromoBanner(),
+              8.verticalSpace,
               const ShortcutsSection(),
-              20.verticalSpace,
               const AdsBanner(),
-              20.verticalSpace,
+              22.verticalSpace,
               const NearbyRestaurantsSection(),
             ],
           ),

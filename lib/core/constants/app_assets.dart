@@ -12,6 +12,11 @@ class AppAssets {
   static const String serv1 = '$imagePath/serv1.png';
   static const String serv2 = '$imagePath/serv2.png';
   static const String serv3 = '$imagePath/serv3.png';
+  static const String security = '$imagePath/security.png';
+  static const String nawelel = '$imagePath/nawelel.png';
+  static const String icon1 = '$imagePath/icon1.png';
+  static const String banner = '$imagePath/banner.png';
+  static const String restaurant1 = '$imagePath/restaurant1.png';
 
   //////////////////////  Icons Path //////////////////////
 

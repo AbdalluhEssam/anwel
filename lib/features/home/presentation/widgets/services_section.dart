@@ -36,7 +36,7 @@ class ServicesSection extends StatelessWidget {
             children: services
                 .map((s) => Flexible(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 13.0),
+                        padding:  EdgeInsets.symmetric(horizontal: 8.0.w),
                         child: _ServiceCard(service: s),
                       ),
                     ))
@@ -59,22 +59,23 @@ class _ServiceCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          width: 105.w,
-          height: 70.h,
-          padding: EdgeInsets.all(8.r),
-          decoration: BoxDecoration(
-            color: Color(0xFFF5F5F5),
-            borderRadius: BorderRadius.circular(12.r),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10.r),
-            // Slightly inner clipping for the image
-            child: Image.asset(
-              service.iconPath,
-              height: 50.h,
-              width: 57.h,
-              fit: BoxFit.contain,
+        FittedBox(
+          child: Container(
+            width: 105.w,
+            height: 70.h,
+            padding: EdgeInsets.all(8.r),
+            decoration: BoxDecoration(
+              color: Color(0xFFF5F5F5),
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.r),
+              child: Image.asset(
+                service.iconPath,
+                height: 50.h,
+                width: 57.h,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ),

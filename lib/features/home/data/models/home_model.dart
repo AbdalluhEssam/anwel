@@ -20,7 +20,7 @@ class ServiceModel {
 }
 
 class ShortcutModel {
-  final IconData icon;
+  final String icon;
   final String label;
 
   ShortcutModel({required this.icon, required this.label});
